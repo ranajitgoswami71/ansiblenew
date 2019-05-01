@@ -1,0 +1,11 @@
+---
+ - name: Transfer and execute a script for Ebs mapping.
+   hosts: nginx_web
+   user: ubuntu
+   sudo: yes
+   tasks:
+     - name: Transfer the ebsmapping.sh script
+       copy: src=ebsvolumemapping.sh dest=/home/ubuntu mode=0777
+
+     - name: Execute the ebs mapping.sh script
+       command: sudo bash /home/ubuntu/ebsvolumemapping.sh

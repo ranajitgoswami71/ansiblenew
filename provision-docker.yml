@@ -1,13 +1,11 @@
 ---
- - name: Transfer and execute a script.
+ - name: Transfer and execute Docker related script.
    hosts: nginx_web
    user: ubuntu
    sudo: yes
    tasks:
-     - name: Transfer the script
+     - name: Transfer the Docker related script
        copy: src=docker_script.sh dest=/home/ubuntu mode=0777
-       copy: src=ebsvolumemapping.sh dest=/home/ubuntu mode=0777
 
-     - name: Execute the script
-       command: sudo bash /home/ubuntu/ebsvolumemapping.sh
+     - name: Execute the Docker related script
        command: bash /home/ubuntu/docker_script.sh
